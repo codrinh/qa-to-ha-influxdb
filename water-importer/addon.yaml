@@ -25,6 +25,7 @@ options:
   influx_db: homeassistant
   influx_user: admin
   influx_password: admin123
+  flask_port: 5000
 
 schema:
   influx_host: str
@@ -32,6 +33,7 @@ schema:
   influx_db: str
   influx_user: str
   influx_password: str
+  flask_port: int
 
 services:
   influxdb:

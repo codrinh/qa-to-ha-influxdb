@@ -140,5 +140,27 @@ def health():
         return jsonify({'status': 'unhealthy', 'error': str(e)}), 500
 
 if __name__ == '__main__':
+    # Startup: Log configuration and verify InfluxDB connection
+    print("\n" + "="*60)
+    print("Water Data Importer - Startup")
+    print("="*60)
+    print(f"InfluxDB Host: {INFLUX_HOST}:{INFLUX_PORT}")
+    print(f"Database: {INFLUX_DB}")
+    print(f"Username: {INFLUX_USER}")
+    
+    # Try to connect to InfluxDB
+    try:
+        client = get_influx_client()
+        client.ping()
+        client.close()
+        print("✓ InfluxDB connection: SUCCESS")
+    except Exception as e:
+        print(f"✗ InfluxDB connection: FAILED - {str(e)}")
+        print("  Warning: Make sure InfluxDB is running and accessible")
+    
+    print("="*60)
+    print("Starting Flask app on 0.0.0.0:5000...")
+    print("="*60 + "\n")
+    
     # Run Flask app on port 5000
     app.run(host='0.0.0.0', port=5000, debug=False)
