@@ -1,7 +1,7 @@
 name: Water Data Importer
 description: Flask app to import water consumption data to InfluxDB
 slug: water-data-importer
-version: 1.0.0
+version: 1.0.1
 stable: true
 maintainers:
   - Codrin
