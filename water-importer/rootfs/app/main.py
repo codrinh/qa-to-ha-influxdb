@@ -10,8 +10,8 @@ app = Flask(__name__)
 INFLUX_HOST = os.getenv('INFLUX_HOST', 'localhost')
 INFLUX_PORT = int(os.getenv('INFLUX_PORT', 8086))
 INFLUX_DB = os.getenv('INFLUX_DB', 'homeassistant')
-INFLUX_USER = os.getenv('INFLUX_USER', 'admin')
-INFLUX_PASSWORD = os.getenv('INFLUX_PASSWORD', 'admin123')
+INFLUX_USER = os.getenv('INFLUX_USER', 'homeassistant')
+INFLUX_PASSWORD = os.getenv('INFLUX_PASSWORD', 'homeassistant')
 
 def get_influx_client():
     """Create and return an InfluxDB client."""

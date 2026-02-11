@@ -9,11 +9,11 @@ ingress: true
 panel_icon: "mdi:water"
 startup: application
 options:
-  influx_host: "homeassistant.local"
+  influx_host: "localhost"
   influx_port: 8086
   influx_db: "homeassistant"
-  influx_user: "admin"
-  influx_password: "admin123"
+  influx_user: "homeassistant"
+  influx_password: "homeassistant"
 schema:
   influx_host: str
   influx_port: int

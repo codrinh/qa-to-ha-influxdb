@@ -20,11 +20,11 @@ ports:
   5000/tcp: 5000
 
 options:
-  influx_host: influxdb.local
+  influx_host: localhost
   influx_port: 8086
   influx_db: homeassistant
-  influx_user: admin
-  influx_password: admin123
+  influx_user: homeassistant
+  influx_password: homeassistant
   flask_port: 5000
 
 schema:
