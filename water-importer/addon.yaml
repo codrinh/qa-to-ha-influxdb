@@ -1,7 +1,7 @@
 name: Water Data Importer
 description: Flask app to import water consumption data to InfluxDB
 slug: water-data-importer
-version: 1.0.1
+version: 1.0.2
 stable: true
 maintainers:
   - Codrin
@@ -20,7 +20,7 @@ ports:
   5000/tcp: 5000
 
 options:
-  influx_host: localhost
+  influx_host: homeassistant.local
   influx_port: 8086
   influx_db: homeassistant
   influx_user: homeassistant

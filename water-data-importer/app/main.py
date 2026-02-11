@@ -7,7 +7,7 @@ from influxdb import InfluxDBClient
 app = Flask(__name__)
 
 # Get configuration from environment variables
-INFLUX_HOST = os.getenv('INFLUX_HOST', 'localhost')
+INFLUX_HOST = os.getenv('INFLUX_HOST', 'homeassistant.local')
 INFLUX_PORT = int(os.getenv('INFLUX_PORT', 8086))
 INFLUX_DB = os.getenv('INFLUX_DB', 'homeassistant')
 INFLUX_USER = os.getenv('INFLUX_USER', 'homeassistant')
