@@ -1,0 +1,84 @@
+services:
+  influxdb:
+    image: influxdb:1.8-alpine
+    container_name: water-influxdb
+    environment:
+      INFLUXDB_DB: homeassistant
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: admin123
+      INFLUXDB_HTTP_AUTH_ENABLED: "true"
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+    networks:
+      - water-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O- http://localhost:8086/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: water-grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin123
+      GF_INSTALL_PLUGINS: grafana-piechart-panel
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    depends_on:
+      influxdb:
+        condition: service_healthy
+    networks:
+      - water-network
+
+  flask-app:
+    build:
+      context: water-data-importer
+      dockerfile: Dockerfile
+    container_name: water-importer-app
+    environment:
+      INFLUX_HOST: influxdb
+      INFLUX_PORT: 8086
+      INFLUX_DB: homeassistant
+      INFLUX_USER: admin
+      INFLUX_PASSWORD: admin123
+    ports:
+      - "5000:5000"
+    depends_on:
+      influxdb:
+        condition: service_healthy
+    networks:
+      - water-network
+    volumes:
+      - ./water-data-importer/app:/app
+
+  test-duplicate:
+    image: curlimages/curl:latest
+    container_name: water-test-duplicate
+    entrypoint: /bin/sh
+    command: /test_data/test-duplicate-check.sh
+    depends_on:
+      - flask-app
+      - influxdb
+    networks:
+      - water-network
+    volumes:
+      - ./test_payload_batch1.json:/test_data/test_payload_batch1.json:ro
+      - ./test_payload_batch2.json:/test_data/test_payload_batch2.json:ro
+      - ./test-duplicate-check.sh:/test_data/test-duplicate-check.sh:ro
+    profiles:
+      - test
+
+volumes:
+  influxdb-storage:
+  grafana-storage:
+
+networks:
+  water-network:
+    driver: bridge

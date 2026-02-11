@@ -1,0 +1,85 @@
+{
+  "description": "First batch - 10 entries",
+  "data": [
+    {
+      "TIME": "05.03.2024 16:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.036",
+      "CONSUM": null,
+      "REAL_MEDIE": "real"
+    },
+    {
+      "TIME": "05.03.2024 17:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.044",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    },
+    {
+      "TIME": "05.03.2024 18:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.052",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    },
+    {
+      "TIME": "05.03.2024 19:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.06",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    },
+    {
+      "TIME": "05.03.2024 20:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.068",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    },
+    {
+      "TIME": "05.03.2024 21:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.076",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    },
+    {
+      "TIME": "05.03.2024 22:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.084",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    },
+    {
+      "TIME": "05.03.2024 23:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.092",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    },
+    {
+      "TIME": "06.03.2024 00:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.1",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    },
+    {
+      "TIME": "06.03.2024 01:07:44",
+      "GRUPMAS_ID": "281827",
+      "METERSERIAL": "18BA335343",
+      "INDEX_CIT": "534.108",
+      "CONSUM": ".008",
+      "REAL_MEDIE": "medie"
+    }
+  ]
+}
