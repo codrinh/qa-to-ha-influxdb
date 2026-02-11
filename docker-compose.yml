@@ -39,7 +39,7 @@ services:
 
   flask-app:
     build:
-      context: water-data-importer
+      context: water-importer
       dockerfile: Dockerfile
     container_name: water-importer-app
     environment:
@@ -56,7 +56,7 @@ services:
     networks:
       - water-network
     volumes:
-      - ./water-data-importer/app:/app
+      - ./water-importer/rootfs/app:/app
 
   test-duplicate:
     image: curlimages/curl:latest
