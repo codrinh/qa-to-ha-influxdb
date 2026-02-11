@@ -1,6 +1,6 @@
 name: "Water Data Importer"
 description: "Upload JSON water logs to InfluxDB"
-version: "1.0.0"
+version: "1.0.1"
 slug: "water_importer"
 arch:
   - aarch64
