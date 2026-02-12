@@ -19,9 +19,8 @@ COPY rootfs/app/ /app/
 # Copy startup script
 COPY rootfs/run.sh /
 
-# Install Python requirements (use python -m pip and allow system-package installs)
-RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
-    python3 -m pip install --no-cache-dir --disable-pip-version-check --break-system-packages -r requirements.txt && \
+# Install Python requirements (avoid upgrading system pip; allow system-package installs)
+RUN python3 -m pip install --no-cache-dir --disable-pip-version-check --break-system-packages -r requirements.txt && \
     chmod +x /run.sh
 
 # Create non-root user
