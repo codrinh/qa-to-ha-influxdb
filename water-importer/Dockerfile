@@ -1,34 +1,21 @@
 ARG BUILD_FROM=homeassistant/aarch64-base:latest
 FROM $BUILD_FROM
 
-# Install dependencies and build tools (needed for some Python packages)
+# Install dependencies
 RUN apk add --no-cache \
     python3 \
-    py3-pip \
-    build-base \
-    libffi-dev \
-    openssl-dev \
-    python3-dev
+    py3-pip
 
 # Set working directory
 WORKDIR /app
 
 # Copy application files
 COPY rootfs/app/ /app/
+COPY rootfs/run.sh /run.sh
 
-# Copy startup script
-COPY rootfs/run.sh /
-
-# Install Python requirements (avoid upgrading system pip; allow system-package installs)
-RUN python3 -m pip install --no-cache-dir --disable-pip-version-check --break-system-packages -r requirements.txt && \
+# Install Python requirements
+RUN python3 -m pip install --no-cache-dir --break-system-packages -r requirements.txt && \
     chmod +x /run.sh
 
-# Create non-root user
-RUN addgroup -g 1000 appuser && \
-    adduser -D -u 1000 -G appuser appuser && \
-    chown -R appuser:appuser /app
-
-USER appuser
-
-# Run via the startup script
+# No USER appuser here - keep as root for HA compatibility
 CMD ["/run.sh"]
