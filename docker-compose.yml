@@ -4,8 +4,8 @@ services:
     container_name: water-influxdb
     environment:
       INFLUXDB_DB: homeassistant
-      INFLUXDB_ADMIN_USER: admin
-      INFLUXDB_ADMIN_PASSWORD: admin123
+      INFLUXDB_ADMIN_USER: homeassistant
+      INFLUXDB_ADMIN_PASSWORD: homeassistant
       INFLUXDB_HTTP_AUTH_ENABLED: "true"
     ports:
       - "8086:8086"
@@ -23,8 +23,8 @@ services:
     image: grafana/grafana:latest
     container_name: water-grafana
     environment:
-      GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: admin123
+      GF_SECURITY_ADMIN_USER: homeassistant
+      GF_SECURITY_ADMIN_PASSWORD: homeassistant
       GF_INSTALL_PLUGINS: grafana-piechart-panel
     ports:
       - "3000:3000"
@@ -46,8 +46,8 @@ services:
       INFLUX_HOST: influxdb
       INFLUX_PORT: 8086
       INFLUX_DB: homeassistant
-      INFLUX_USER: admin
-      INFLUX_PASSWORD: admin123
+      INFLUX_USER: homeassistant
+      INFLUX_PASSWORD: homeassistant
     ports:
       - "5000:5000"
     depends_on:
