@@ -13,17 +13,17 @@ echo "[INFO] Starting Water Data Importer add-on..."
 export FLASK_PORT=$(bashio::config 'flask_port' '5000')
 export FLASK_HOST="0.0.0.0"
 
-echo ""
-echo "============================================================"
-echo "Configuration Summary:"
-echo "============================================================"
-echo "InfluxDB Host: $INFLUX_HOST"
-echo "InfluxDB Port: $INFLUX_PORT"
-echo "Database:      $INFLUX_DB"
-echo "Username:      $INFLUX_USER"
-echo "Flask Port:    $FLASK_PORT"
-echo "============================================================"
-echo ""
+# echo ""
+# echo "============================================================"
+# echo "Configuration Summary:"
+# echo "============================================================"
+# echo "InfluxDB Host: $INFLUX_HOST"
+# echo "InfluxDB Port: $INFLUX_PORT"
+# echo "Database:      $INFLUX_DB"
+# echo "Username:      $INFLUX_USER"
+# echo "Flask Port:    $FLASK_PORT"
+# echo "============================================================"
+# echo ""
 
 # Start the Flask application
 cd /app
