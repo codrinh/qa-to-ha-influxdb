@@ -9,6 +9,10 @@ init: false
 boot: auto
 startup: services
 
+ingress: true
+ingress_port: 5000
+panel_icon: "mdi:water-pump"
+
 ports:
   5000/tcp: 5000
 
