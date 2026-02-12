@@ -1,27 +1,23 @@
-name: Water Data Importer
-description: Flask app to import water consumption data to InfluxDB
-slug: water-importer
-version: 1.0.4
-stable: true
-maintainer: Codrin
-url: https://github.com/codrinh/qa-to-ha-influxdb
-documentation: https://github.com/codrinh/qa-to-ha-influxdb
-repository: https://github.com/codrinh/qa-to-ha-influxdb
-issues: https://github.com/codrinh/qa-to-ha-influxdb/issues
-
+name: "Water Data Importer"
+description: "Flask app to import water consumption data to InfluxDB"
+slug: "water-importer"
+version: "1.0.4"
 arch:
   - amd64
   - aarch64
+init: false
+boot: auto
+startup: services
 
 ports:
-  "5000/tcp": 5000
+  5000/tcp: 5000
 
 options:
-  influx_host: homeassistant.local
+  influx_host: "homeassistant.local"
   influx_port: 8086
-  influx_db: homeassistant
-  influx_user: homeassistant
-  influx_password: homeassistant
+  influx_db: "homeassistant"
+  influx_user: "homeassistant"
+  influx_password: "homeassistant"
   flask_port: 5000
 
 schema:
@@ -32,12 +28,5 @@ schema:
   influx_password: str
   flask_port: int
 
-boot: auto
-startup: services
-privileged: false
-
 environment:
-  PYTHONUNBUFFERED: 1
-
-panel_title: Water Data Importer
-panel_admin: true
+  PYTHONUNBUFFERED: "1"
