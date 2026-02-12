@@ -34,7 +34,6 @@ schema:
   influx_password: str
   flask_port: int
 
-
 boot: auto
 startup: services
 privileged: false
